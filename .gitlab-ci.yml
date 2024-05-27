@@ -1,0 +1,29 @@
+image: node:latest # Use Node.js image for CI jobs
+
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/ # Cache node_modules for faster builds
+
+before_script:
+  - npm install --quiet # Install dependencies before running the script
+
+build:
+  stage: build
+  script:
+    - npm run build # Build the Next.js project
+  artifacts:
+    paths:
+      - .next/ # Save the .next directory as an artifact
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production" # Replace with your deployment script
+  environment:
+    name: production # Environment name, can be customized
+  only:
+    - master # Deploy only on changes to the master branch
