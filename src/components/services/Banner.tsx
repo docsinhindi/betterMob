@@ -22,8 +22,8 @@ export default function Banner() {
 
       <div className='relative w-full h-64 md:h-96 lg:h-[500px] mb-10'>
         <Image
+          src={'/about/png/about-company-bg.png'}
           alt='Service Banner'
-          src='/services/image.svg'
           layout='fill'
           objectFit='cover'
           quality={100}
